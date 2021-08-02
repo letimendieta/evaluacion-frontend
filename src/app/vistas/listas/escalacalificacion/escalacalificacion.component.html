@@ -1,0 +1,49 @@
+<h1 >CALIFICACION </h1>
+
+<p class="bg-warning text-black" style="text-align: center;">{{calificacion}}</p>
+<hr>
+
+<div class="table-responsive ">
+<table *ngIf="!cargando && escalacalificaciones.length > 0"
+       class="table mt-1 animated fadeIn faster animated">
+  <thead >
+    <tr >
+     
+      <th scope="col">CALIFICACION</th>
+      <th scope="col">Valoracion General</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let escalacalificacion of escalacalificaciones">
+     
+      <td>{{ escalacalificacion.valor }}</td>
+      <td>{{ escalacalificacion.descripcion }}</td>
+      <td>{{ escalacalificacion.minimo }} ----- {{ escalacalificacion.maximo }}</td>
+    
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!cargando && escalacalificaciones.length === 0"
+     class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando"
+     class="alert alert-info text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">
+    Espere por favor
+  </p>
+</div>
+</div>
+<br><br> 
+<app-recomendaciones></app-recomendaciones>

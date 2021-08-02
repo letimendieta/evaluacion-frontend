@@ -1,0 +1,123 @@
+<body>
+ 
+
+  <div class="row animated fadeIn faster">
+    <div class="col">
+      <div class="card">
+        <h3 class="card-header">RECOMENDACIONES Y PLANES DE MEJORA</h3>
+        <div class="card-body">
+          <form [formGroup]="recomendacionForm" (ngSubmit)="guardar( )">
+            
+            
+            <div class="row justify-content-center">
+              <div class="col-lg-5">
+                <div class="form-group" [hidden]="crear">
+                  <label><b>Ir recomedacion</b></label>
+                  <input type="text"
+                        class="form-control"
+                        placeholder="idrecomendacion"
+                        formControlName="idrecomendacion" 
+                        name="idrecomendacion">
+                  <small class="form-text text-muted">Este campo es autogenerado</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-left">
+              <div class="col-lg-5">
+                <div class="form-group">
+                  <label><b>Accion Mejora</b><span class="requerido"> *</span></label>
+                        <textarea class="form-control my-5"          
+                        name="accionmejora"
+                        formControlName="accionmejora"
+                        [class.is-invalid]="accionmejoraNoValido"  [maxLength]="150" 
+                        (keyup)="onKey($event)" ></textarea>
+                      
+                    <small *ngIf="accionmejoraNoValido" class="text-danger">
+                      Ingrese accionmejora 
+                    </small>
+                    <small  class="text-danger">
+                      {{contador}}/150
+                    </small>
+                </div>
+
+                <div class="form-group">
+                  <label><b>Accion propuesta</b><span class="requerido"> *</span></label>
+                  <textarea class="form-control my-5"          
+                  name="accionpropuesta"
+                  formControlName="accionpropuesta"
+                  [class.is-invalid]="accionpropuestaNoValido"  [maxLength]="150" 
+                  (keyup)="onKey($event)"></textarea>
+                
+              <small *ngIf="accionpropuestaNoValido" class="text-danger">
+                Ingrese propuesta  
+              </small>
+              <small  class="text-danger">
+                {{contador}}/150
+              </small>
+                </div>
+                <div class="form-group">
+                  <label><b>Observacion</b><span class="requerido"> *</span></label>
+                  <textarea class="form-control my-5"          
+                  name="observacion"
+                  formControlName="observacion"
+                  [class.is-invalid]="observacionNoValido"  [maxLength]="150" 
+                  (keyup)="onKey($event)"></textarea>
+                
+              <small *ngIf="observacionNoValido" class="text-danger">
+                Ingrese observacion  
+              </small>
+              <small  class="text-danger">
+                {{contador}}/150
+              </small>
+                </div>
+                       
+              </div>
+            </div>
+
+            <div class="form-row justify-content-center" [hidden]="crear">
+              <div class="col-lg-5">
+                <div class="form-group">
+                  <label><b>Fecha creaci&oacute;n</b></label>
+                  <input type="datetime-local"
+                        class="form-control"
+                        formControlName="fechaCreacion"
+                        name="fechaCreacion"
+                        placeholder="Fecha creaci&oacute;n">
+                </div>
+                <div class="form-group">
+                  <label><b>Fecha modificaci&oacute;n</b></label>
+                  <input type="datetime-local"
+                        class="form-control"
+                        formControlName="fechaModificacion"
+                        name="fechaModificacion"
+                        placeholder="Fecha modificaci&oacute;n">
+                </div>
+              </div>
+
+              
+            </div>
+            <hr>
+            <br>
+            <div *ngIf="alertGuardar" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+              Existen campos obligatorios. Verifique.
+              <button type="button" (click)="cerrarAlertGuardar()" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="form-group text-center">
+              <button type="submit"
+                      class="btn btn-primary ">
+                <i class="fa fa-save"></i>
+                Guardar
+              </button>
+              &nbsp;&nbsp;
+              <button (click)="limpiar()" [hidden]="!crear" class="btn btn-warning"><i class="fas fa-backspace"></i> Limpiar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

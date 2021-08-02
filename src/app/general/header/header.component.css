@@ -1,0 +1,13 @@
+ul li {
+  list-style: none;
+}
+
+*{
+  background-color:#00305f;
+  color: rgb(255, 255, 255);
+
+}
+
+.header{
+  border-bottom: 1px solid #fff;
+}

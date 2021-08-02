@@ -1,0 +1,85 @@
+<br/>
+<app-escalaevaluacion></app-escalaevaluacion>
+
+
+<h1>{{factordescripcion}} </h1>
+<hr>
+
+<div class="table-responsive ">
+<table *ngIf="!cargando && preguntasgrupofactorlist.length > 0"
+       class="table table-bordered " id="tablaRespuestas">
+  <thead >
+    <tr >
+     
+      <th scope="col">Factores de Evaluacion</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Nivel de Evaluacion</th>
+      <th scope="col">Porcentaje</th>
+      <th scope="col">NotaPonderada</th>
+      <th scope="col">FUNDAMENTACIÓN DE LAS CALIFICACIONES EN LAS VARIABLES RELATIVAS AL DESEMPEÑO SEGÚN TAREAS. 
+        ( SOLO PARA CALIFICACIÓN NO SATISFACTORIO Y NECESITA MEJORAR)</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let preguntagrupofactor of preguntasgrupofactorlist; ; let i = index">
+   
+      <td>{{ preguntagrupofactor.pregunta }}</td>
+      <td>{{preguntagrupofactor.peso}}</td>
+      <td><input [(ngModel)]="preguntagrupofactor.respuesta" type="number" min="1" max="4" class="form-control" (blur)="updateList(i, 'nivelevaluacion', $event)" (keyup)="changeValue(i, 'nivelevaluacion', $event)"></td>
+      <td>{{preguntagrupofactor.porcentaje}} </td>
+      <td> {{preguntagrupofactor.notaponderada}}</td>
+      <td><div class="form-group">
+        <textarea [(ngModel)]="preguntagrupofactor.observacion" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="1" maxlength="150"
+        
+        name="titleId" (blur)="activarTextArea(i, $event)" autocomplete="off" ></textarea>
+  
+        
+      </div></td>
+      
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Subtotal</td>
+      <td>{{total}}</td>
+      <td></td>
+      <td></td>
+      <td>{{totalnota}}</td>
+    </tr>
+  </tfoot>
+</table>
+
+
+  <a>
+    <a class="waves-effect waves-light btn-small" (click)="getValoresTabla(preguntasgrupofactorlist)" style="height: 25px !important;width: 100px;margin-bottom: 9px !important;margin-right: 2px; font-size: 11px;">Agregar nota</a>
+  </a>
+
+
+
+<div *ngIf="!cargando && preguntasgrupofactorlist.length === 0"
+     class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando"
+     class="alert alert-info text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">
+    Espere por favor
+  </p>
+</div>
+</div>
+<div class="form-group">
+  <label for="exampleFormControlTextarea2">Observaciones</label>
+  <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+</div>
+<app-escalacalificacion [calificacion] = "calificacion"></app-escalacalificacion>
+
+<br><br> 

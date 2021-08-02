@@ -1,0 +1,25 @@
+th{
+    white-space:nowrap;
+  }
+  
+  body {
+    font:400 15px sans-serif;
+  }
+
+  /*estilos para la tabla*/
+  table th {
+    background-color: #00305f !important;
+    color: white;
+  }
+
+  table>tbody>tr>td {
+    vertical-align: left !important;
+    border: 1px solid rgb(216, 216, 216);
+  }
+
+  /*para alinear los botones y cuadro de busqueda*/
+  .btn-group, .btn-group-vertical {
+    position: absolute !important;
+  }
+
+  

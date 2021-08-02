@@ -1,0 +1,149 @@
+<body>
+ 
+
+    <div class="row animated fadeIn faster">
+      <div class="col">
+        <div class="card">
+          <h3 class="card-header">Configuracion Periodo</h3>
+          <div class="card-body">
+            <form [formGroup]="periodoForm" (ngSubmit)="guardar( )">
+              
+              
+              <div class="row justify-content-center">
+                <div class="col-lg-5">
+                  <div class="form-group" [hidden]="crear">
+                    <label><b>Ir recomedacion</b></label>
+                    <input type="text"
+                          class="form-control"
+                          placeholder="idrecomendacion"
+                          formControlName="idrecomendacion" 
+                          name="idrecomendacion">
+                    <small class="form-text text-muted">Este campo es autogenerado</small>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row justify-content-left">
+                <div class="col-lg-5">
+                  <div class="form-group">
+                    <label><b>Descripcion</b><span class="requerido"> *</span></label>
+                          <input class="form-control my-5"          
+                          name="descripcion"
+                          formControlName="descripcion"
+                          [class.is-invalid]="descripcionNoValido"  [maxLength]="50" 
+                           />
+                        
+                      <small *ngIf="descripcionNoValido" class="text-danger">
+                        Ingrese descripcion 
+                      </small>
+                      
+                  </div>
+  
+                  <div class="form-group">
+                    <label><b>Año</b></label>
+                    <select class="custom-select"
+                          formControlName="anho" name = "anho">
+                     <option selected="true" disabled="disabled" value=" ">Seleccione año</option>     
+                      <option value="2015" >2015</option>
+                      <option value="2016" >2016</option>
+                      <option value="2017" >2017</option>
+                      <option value="2018" >2018</option>
+                      <option value="2019" >2019</option>
+                      <option value="2020" >2020</option>
+                      <option value="2021" >2021</option>
+                      <option value="2022" >2022</option>
+                      <option value="2023" >2023</option>
+                      <option value="2024" >2024</option>
+                      <option value="2025" >2025</option>
+
+                    </select>
+                  </div>    
+
+
+                  <div class="form-group">
+                    <label><b>Semestre</b></label>
+                    <select class="custom-select"
+                          formControlName="semestre" name = "semestre">
+                     <option selected="true"  value=" ">Seleccione semestre</option>     
+                      <option value="1" >1</option>
+                      <option value="2" >2</option>
+                    </select>
+                  </div>   
+                  
+                  <div class="form-group">
+                    <label><b>Fecha Inicio</b></label>
+                    <input type="date"
+                          class="form-control"
+                          formControlName="fechaInicio"
+                          name="fechaInicio"
+                          placeholder="Fecha inicio">
+                  </div>
+
+                  <div class="form-group">
+                    <label><b>Fecha Fin</b></label>
+                    <input type="date"
+                          class="form-control"
+                          formControlName="fechaFin"
+                          name="fechaFin"
+                          placeholder="Fecha fin">
+                  </div>
+
+                  <div class="form-group">
+                    <label><b>Estado</b></label>
+                    <select class="custom-select"
+                        formControlName="estado" name = "estado">
+                        <option selected="true" disabled="disabled" value=" "> Seleccione estado</option>     
+                        <option value="A" >Abierto</option>
+                        <option value="C" >Cerrado</option>
+                    </select>
+                  </div>    
+                         
+                </div>
+              </div>
+  
+              <div class="form-row justify-content-center" [hidden]="crear">
+                <div class="col-lg-5">
+                  <div class="form-group">
+                    <label><b>Fecha creaci&oacute;n</b></label>
+                    <input type="datetime-local"
+                          class="form-control"
+                          formControlName="fechaCreacion"
+                          name="fechaCreacion"
+                          placeholder="Fecha creaci&oacute;n">
+                  </div>
+                  <div class="form-group">
+                    <label><b>Fecha modificaci&oacute;n</b></label>
+                    <input type="datetime-local"
+                          class="form-control"
+                          formControlName="fechaModificacion"
+                          name="fechaModificacion"
+                          placeholder="Fecha modificaci&oacute;n">
+                  </div>
+                </div>
+  
+                
+              </div>
+              <hr>
+              <br>
+              <div *ngIf="alertGuardar" class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                Existen campos obligatorios. Verifique.
+                <button type="button" (click)="cerrarAlertGuardar()" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit"
+                        class="btn btn-primary ">
+                  <i class="fa fa-save"></i>
+                  Guardar
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="limpiar()" [hidden]="!crear" class="btn btn-warning"><i class="fas fa-backspace"></i> Limpiar</button>
+              </div>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>

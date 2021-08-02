@@ -1,0 +1,65 @@
+   	<nav id="sidebar">
+   		<div class="sidebar-header">
+       <h1>Evaluacion-FIUNA</h1>
+      </div>
+   		
+   		
+   		<ul class="list-unstyled components">
+        
+         <li>
+          <a routerLinkActive="list-item-active" routerLink="/" ><i class="fas fa-home fa-1x"></i>  Inicio</a>
+        </li>
+        <li>
+          <a routerLinkActive="list-item-active" routerLink="/preguntas" (click)="toggleSideBar()" ><i class="fas fa-question-circle fa-1x"></i> Preguntas</a>
+        </li>
+      
+
+        <li class="active">
+          <a href="#variosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-cogs fa-1x"></i>  Configuraciones</a>
+          <ul class="collapse list-unstyled" id="variosSubmenu">
+            <li>
+             <a routerLinkActive="list-item-active"  routerLink="/areas" (click)="toggleSideBar()">&Aacute;reas</a>
+             
+            </li>
+            <li>
+               <a routerLinkActive="list-item-active"  routerLink="/carreras" (click)="toggleSideBar()">Carreras</a>
+            </li>
+            <li>
+              <a routerLinkActive="list-item-active"  routerLink="/departamentos" (click)="toggleSideBar()">Departamentos</a>
+              
+             </li>
+             <li>
+                <a routerLinkActive="list-item-active"  routerLink="/estamentos" (click)="toggleSideBar()">Estamentos</a>
+             </li>
+             <li>
+              <a routerLinkActive="list-item-active"  routerLink="/dependencias" (click)="toggleSideBar()">Dependencias</a>
+           </li>
+           <li>
+            <a routerLinkActive="list-item-active"  routerLink="/parametros" (click)="toggleSideBar()">Param&eacute;tros</a>
+         </li>
+          </ul> 
+        </li>
+         <li class="active">
+          <a href="#funcionariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-id-card-alt fa-1x"></i>  Funcionarios</a>
+          <ul class="collapse list-unstyled" id="funcionariosSubmenu">
+            <li>
+             <a routerLinkActive="list-item-active"  routerLink="/funcionarios" (click)="toggleSideBar()">Funcionarios</a>
+            </li>
+            <li>
+             <a routerLinkActive="list-item-active"  routerLink="/horarios" (click)="toggleSideBar()">Horarios</a>
+            </li>
+            
+          </ul> 
+        </li>
+        
+   			<li>
+   				<a routerLinkActive="list-item-active"  routerLink="/usuarios"(click)="toggleSideBar()"><i class="fas fa-users-cog fa-1x"></i>  Usuarios</a>
+         </li>
+         <li>
+          <a routerLinkActive="list-item-active" routerLink="/" (click)="toggleSideBar()" ><i class="fas fa-file-alt fa-1x"></i> Reportes</a>
+        </li>
+   			
+   		</ul>
+   		
+     </nav>
+    

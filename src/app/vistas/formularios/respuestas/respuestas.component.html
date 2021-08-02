@@ -1,0 +1,67 @@
+<!--<div class="container">
+    <h3>Angular 9 FormArray Example</h3>
+    <form [formGroup] = "respuestaForm" (ngSubmit)="onFormSubmit()">
+      <div formArrayName="names">
+        <div *ngFor="let name of names.controls; index as idx" class="form-group">
+          <input [formControlName]="idx" placeholder="Enter a Name" class="form-control">
+          <label *ngIf="name.invalid" [ngClass] = "'error'"> Name is required. </label>
+          <button type="button" (click)="addNameField()" class="btn btn-success" [ngClass] = "'pad'">Add More Names</button>
+          <button (click)="deleteNameField(idx)" class="btn btn-danger">Delete</button>
+        </div>
+        </div> 
+        <div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </form>
+    </div>
+
+
+  
+    <table *ngIf="!cargando && preguntasgrupofactorlist.length > 0"
+      class="table table-bordered ">
+ <thead >
+   <tr >
+    
+     <th scope="col">Factores de Evaluacion</th>
+     <th scope="col">Peso</th>
+     <th scope="col">Nivel de Evaluacion</th>
+     <th scope="col">Porcentaje</th>
+     <th scope="col">NotaPonderada</th>
+     <th scope="col">FUNDAMENTACIÓN DE LAS CALIFICACIONES EN LAS VARIABLES RELATIVAS AL DESEMPEÑO SEGÚN TAREAS. 
+       ( SOLO PARA CALIFICACIÓN NO SATISFACTORIO Y NECESITA MEJORAR)</th>
+     
+   </tr>
+ </thead>
+ <tbody>
+   <tr *ngFor="let preguntagrupofactor of preguntasgrupofactorlist; ; let i = index">
+  
+    <td><div [formGroup]="recomendacionForm">
+      <input formControlName="pregunta">
+    </div></td>
+     <td >{{ preguntagrupofactor.pregunta }}</td>
+     <td formControlName="peso">{{preguntagrupofactor.peso}}</td>
+     <td><input type="number" min="1" max="4" class="form-control"></td>
+     <td>{{preguntagrupofactor.porcentaje}} </td>
+     <td> {{preguntagrupofactor.notaponderada}}</td>
+     <td><div class="form-group">
+       <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="1" maxlength="150"
+       
+       name="titleId" (blur)="activarTextArea(i, $event)" autocomplete="off" ></textarea>
+ 
+       
+     </div></td>
+    
+   </tr>
+ </tbody>
+ <tfoot>
+   <tr>
+     <td>Subtotal</td>
+     <td>{{total}}</td>
+     <td></td>
+     <td></td>
+     <td>{{totalnota}}</td>
+   </tr>
+ </tfoot>
+</table>
+
+-->

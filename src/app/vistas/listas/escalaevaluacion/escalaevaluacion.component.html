@@ -1,0 +1,45 @@
+<h1>NIVEL DE EVALUACIÓN </h1>
+<hr>
+
+<div class="table-responsive ">
+<table *ngIf="!cargando && escalaevaluaciones.length > 0"
+       class="table mt-1 animated fadeIn faster animated fadeIn faster">
+  <thead >
+    <tr >
+     
+      <th scope="col">Valor</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Observación</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let escalaevaluacion of escalaevaluaciones">
+     
+      <td>{{ escalaevaluacion.valor }}</td>
+      <td>{{ escalaevaluacion.descripcion }}</td>
+      <td>{{ escalaevaluacion.observacion }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!cargando && escalaevaluaciones.length === 0"
+     class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando"
+     class="alert alert-info text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">
+    Espere por favor
+  </p>
+</div>
+</div>
+<br><br> 
